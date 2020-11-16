@@ -1,0 +1,282 @@
+
+{#<!DOCTYPE html>#}
+{#{% load static %}#}
+{#<html lang="zh-CN"><head>#}
+{##}
+{#    <title>Regist</title>#}
+{##}
+{#  </head>#}
+{#<style>#}
+{#        html,body{text-align:center;margin:0px auto;}#}
+{#</style>#}
+{#<body>#}
+{#<h1>Registration</h1>#}
+{#<form method = 'post' enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{##}
+{#    <p><label for="id_username">username:</label> <input type="text" name="username" maxlength="50" required="" id="id_username"></p>#}
+{#    <p><label for="id_password">password:</label> <input type="password" name="password" required="" id="id_password"></p>#}
+{#    <p><label for="id_email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:</label> <input type="text" name="email" maxlength="60" required="" id="id_email"></p>#}
+{#<input type="submit" value = "Regist" />#}
+{#</form>#}
+{#    <a href = "../l" >#}
+{#         <button>Already have an Account?</button>#}
+{#    </a>#}
+{#</body>#}
+{#</html>#}
+<!DOCTYPE html>
+<!-- {% load static %} -->
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'css/plugins.css'%}">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+    <script src="js/jquery.js"></script>
+	  <script src="js/plugins.js"></script>
+	  <script src="js/plugins2.js"></script>
+	  <script src="js/custom.js"></script>
+
+  </head>
+<style>
+        html,body{text-align:center;margin:0px auto;}
+</style>
+<body>
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="../login_index"><img class="logo" src="{% static "images/logo-2-allgreen.png"%}" alt="" width="200" height="120"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						<li><a href="#">Help</a></li>
+					</ul>
+				</div>
+	  </nav>
+	</div>
+</header>
+<!-- END | Header -->
+
+<link rel="stylesheet" type="text/css" href="{% static "css/htmleaf-demo.css"%}">
+	<style type="text/css">
+		.login-page {
+		  width: 600px;
+		  padding: 8% 0 0;
+		  margin: auto;
+		}
+        .form {
+		  position: relative;
+		  z-index: 1;
+		  background: #FFFFFF;
+		  max-width: 600px;
+		  margin: 0 auto 100px;
+		  padding: 15px;
+		  text-align: center;
+		  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+		}
+		.form input {
+		  font-family: "Roboto", sans-serif;
+		  outline: 0;
+		  background: #f2f2f2;
+		  width: 100%;
+		  border: 0;
+		  margin: 0 0 5px;
+		  padding: 5px;
+		  box-sizing: border-box;
+		  font-size: 18px;
+		}
+		.form button {
+		  font-family: "Microsoft YaHei","Roboto", sans-serif;
+		  text-transform: uppercase;
+		  outline: 0;
+		  background: #4dd864;
+		  width: 100%;
+		  border: 0;
+		  padding: 15px;
+		  color: #FFFFFF;
+		  font-size: 14px;
+		  -webkit-transition: all 0.3 ease;
+		  transition: all 0.3 ease;
+		  cursor: pointer;
+		}
+
+        #reg-bt {
+		  font-family: "Microsoft YaHei","Roboto", sans-serif;
+		  text-transform: uppercase;
+		  outline: 0;
+		  background: #4dd864;
+		  width: 100%;
+		  border: 0;
+		  padding: 15px;
+		  color: #FFFFFF;
+		  font-size: 14px;
+		  -webkit-transition: all 0.3 ease;
+		  transition: all 0.3 ease;
+		  cursor: pointer;
+		}
+
+        .form .nav-link1 {
+		  font-family: "Microsoft YaHei","Roboto", sans-serif;
+		  text-transform: uppercase;
+		  outline: 0;
+		  background: #4dd864;
+		  width: 100%;
+		  border: 0;
+		  padding: 15px;
+		  color: #FFFFFF;
+		  font-size: 14px;
+		  -webkit-transition: all 0.3 ease;
+		  transition: all 0.3 ease;
+		  cursor: pointer;
+		}
+
+		.form button:hover,.form button:active,.form button:focus {
+		  background: #4dd864;
+		}
+		.form .message {
+		  margin: 15px 0 0;
+		  color: #b3b3b3;
+		  font-size: 12px;
+		}
+		.form .message a {
+		  color: #4dd864;
+		  text-decoration: none;
+		}
+
+        .form a {
+		  color: #4dd864;
+		  text-decoration: none;
+		}
+
+		.form .login-form {
+		  display: none;
+		}
+
+		p.center{
+			color: #fff;font-family: "Microsoft YaHei";
+		}
+	</style>
+
+<!-- sign up window -->
+<div id="register" class="htmleaf-container" tabindex="-1">
+    <div id="wrapper" class="login-page">
+        <div id="login_form" class="form">
+            <div class="modal-title">
+				<h1 class="text-center">Movito</h1>
+				<h6>Sign up to find movies you like!</h6>
+			</div>
+
+                <form class="register-form form-group" enctype="multipart/form-data" method = "POST">
+
+					{% csrf_token %}
+						<div class="form-group" >
+
+                            <label for=""></label>
+                            <p><span style="color:red; font-size: larger">{{ error_msg }}</span></p>
+                            <input class="form-control" type="text" placeholder="User Name" name = "username">
+
+							<label for=""></label>
+							<input class="form-control" type="email" placeholder="Email" name = "email">
+
+                            <label for=""></label>
+                            <input class="form-control" type="password" placeholder="Password" name = "password">
+                        </div>
+
+                         <div class="text-right">
+                            <button style="margin-bottom:10px; " id="reg-bt" class="btn btn-primary" type="submit" value="Register">
+                            Sign up
+                            </button>
+                        </div>
+                        <a class="signin nav-link"  href="../l">
+                                                Already have an Account
+                                            </a>
+                </form>
+        </div>
+    </div>
+</div>
+<!-- end of sign up window -->
+
+<!-- footer section-->
+<footer class="ht-footer full-width-ft">
+	<div class="row">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <a href="../login_index"><img class="logo" src="{% static "images/logo-2-allgreen.png"%}" alt="" width="270"></a>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+
+			</div>
+
+		</div>
+		<div class="ft-copyright">
+			<div class="ft-left">
+				<p>© 2020 Movito. All Rights <a href="/movie/">Reserved</a>. Designed by JobHunter.</p>
+			</div>
+			<div class="backtotop">
+				<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+</body>
+</html>
+
+
