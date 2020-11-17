@@ -120,7 +120,7 @@
 					<div class="user-fav">
 						<p>Account Details</p>
 						<ul>
-							<li><a href="/login/profile/">Profile</a></li>
+							<li><a href={% url 'other_user_account' username %}>Profile</a></li>
 							<li class="active"><a href={% url 'wishlist' username %}>Wishlist</a></li>
 						</ul>
 					</div>
@@ -134,9 +134,7 @@
 				</div>
 
                 {% for movie in wishlist.object_list %}
-                    <a href="{% url 'del_wishlist' movie.id %}?next={{ request.path }}">
-                    <img  style="height: 30px;width: 30px;float: right;margin-top: 15px " src="{% static "images/remove.png"%}" alt="">
-                    </a>
+                    
                 <div class="movie-item-style-2">
                     <img src="https://image.tmdb.org/t/p/w500{{ movie.img_path }}" alt="">
                     <div class="mv-item-infor">

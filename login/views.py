@@ -252,7 +252,7 @@ class OthersWishListView(LoginRequiredMixin, View):
         #     else:
         #         star_dic[movie_id] = 0
 
-        return render(request, 'login/others_wishlist.html', {"wishlist": wishlist, "counts": counts})
+        return render(request, 'login/others_wishlist.html', {"wishlist": wishlist, "counts": counts,"username":username})
 
 
 
