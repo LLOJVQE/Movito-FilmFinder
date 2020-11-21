@@ -183,8 +183,11 @@ class MovieDetailView(LoginRequiredMixin,View):
             commented_movies_genres = Comment.objects.filter(Q(user=user)).values('movie').values('movie__genres__id') # 感兴趣的genreid
             q['genres__in'] = [genre_id,]
             # request_path = request_path.split('-')[0]+str(genre_id)
-
-        recommendation_movies = Movie.objects.filter(**q).order_by('-star','title')[:20]
+        if genre_id == '50':
+            # for g in genre_list.all()
+            recommendation_movies = Movie.objects.filter(genres__in=genre_list.all().values('movie__genres'))
+        else:
+            recommendation_movies = Movie.objects.filter(**q).order_by('-star','title')[:20]
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
